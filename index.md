@@ -31,12 +31,22 @@ leaderboard entries, and may show them to other players according to your Play G
 by Google under the Google Privacy Policy (https://policies.google.com/privacy). We do not receive your Google account
 details, and we do not store any of this data on our own servers.
 
-You can manage or delete your Play Games profile and data in the Google Play Games app or in your Google account.
+You can delete this data at any time — see [Deleting your data](#deleting-your-data).
 
 ## Android Auto
 When you play on a car screen through Android Auto, the game runs on your phone. On the car screen the game never
 signs in to Google Play Games and shows no Play Games screens; medals won there are sent the next time you open the
 game on your phone while signed in. We do not access your location, vehicle data or any other car information.
+
+## Deleting your data
+How to delete the data of Fleet Admiral:
+
+- **Saves on your device** (settings, the battle in progress, career, points and medals): uninstall Fleet Admiral,
+  or clear its data in Android Settings → Apps → Fleet Admiral → Storage → Clear storage. This deletes them for good.
+- **Google Play Games data** (your Play Games profile, and the achievements and scores Fleet Admiral sent): delete it
+  in your Play Games profile at https://play.google.com/games/profile or in your Google Account at
+  https://myaccount.google.com. This data is held by Google; we cannot see or delete it for you.
+- **Our servers:** we keep nothing about you on any server, so there is nothing else to delete.
 
 ## Permissions
 The game does not request access to your contacts, location, camera, microphone or files. Google Play Games uses
