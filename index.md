@@ -48,15 +48,23 @@ any other personal information, and there is no free text and no chat: your nick
 **What we store on our server** (operated on Cloudflare Workers):
 - your account code, a hash of your secret key, your generated nickname and your career rank as shown to others;
 - your friend list, the players you blocked, and whether you are listed in the lobby;
-- online games: both fleets, the moves, the clocks and the result — deleted 24 hours after the game ends;
+- online games: both players' account codes and nicknames, both fleets, the moves, the clocks and the result —
+  deleted 24 hours after the game ends; your account keeps the ids of your last 50 games (for reports and for
+  removing your name from them when you delete the account);
 - reports you file or receive (a preset reason and the game it is about; the reporter is stored only as a
   pseudonym) — kept for 7 days;
 - counters that protect the service from abuse (how many games, challenges or reports in a time window) and
   temporary bans;
 - a Firebase Cloud Messaging token, used only to tell you that someone challenges you while the game is closed.
 
-We do not store IP addresses, device identifiers, your location or contacts. Other players see only your nickname
-and rank — never your account code unless you share it with them.
+We do not store IP addresses, hardware or advertising identifiers, your location or contacts. To stop abuse (for
+example scripted account creation) the server counts requests per IP address under a keyed hash of the address, never
+the address itself; these counters are deleted after at most one day. The only identifier tied to your device is the
+push token above. Our technical logs contain no IP addresses, keys or nicknames and are kept by Cloudflare for at
+most a few days.
+
+Other players see only your nickname and rank — never your account code, unless you give it to them or add them as
+a friend (friends see each other's codes).
 
 **Google services used by online play.**
 - *Play Integrity API:* when your account is created and when a session starts, the game asks Google to confirm that
@@ -67,10 +75,12 @@ and rank — never your account code unless you share it with them.
   reinstall or a new phone. Google encrypts it end to end when your device has a screen lock. We cannot read your
   backup.
 
-**Deleting your account.** In the game: Settings → Online account → Delete account. Without the game: open
-`https://fleet-admiral-server-staging.maestrolabs-dev.workers.dev/account/delete` and enter your account code and key (both shown in Settings → Online account).
-Deletion removes your account, friends, blocks, lobby entry and push token at once; in recent games your nickname is
-replaced by "deleted". Accounts not used for 12 months are deleted automatically.
+**Deleting your account.** In the game: Online → Online account → Delete account. Without the game: follow the
+steps on the [account deletion page](delete.md) and enter your account code and key (both shown in Online → Online
+account). If you no longer have the game, email <maestrolabs.dev@gmail.com> with your nickname (and friend code if you
+know it); we delete the account within 30 days. Deletion removes your account, friends, blocks, lobby entry and push
+token at once; in recent games your nickname is replaced by "deleted". Accounts not used for 12 months are deleted
+automatically.
 
 **Security.** All connections are encrypted (HTTPS / WSS). Your key is stored on your device encrypted with a key held
 by the Android Keystore.
@@ -90,10 +100,11 @@ How to delete the data of Fleet Admiral:
 - **Google Play Games data** (your Play Games profile, and the achievements and scores Fleet Admiral sent): delete it
   in your Play Games profile at https://play.google.com/games/profile or in your Google Account at
   https://myaccount.google.com. This data is held by Google; we cannot see or delete it for you.
-- **Your online account** (only if you used online play): delete it in the game (Settings → Online account → Delete
-  account) or on the web page given in [Online play](#online-play) with your account code and key. This removes the
-  account, friends, blocks, lobby entry and push token at once; accounts not used for 12 months are deleted
-  automatically. Battles against the computer keep nothing on any server.
+- **Your online account** (only if you used online play): delete it in the game (Online → Online account → Delete
+  account) or on the [account deletion page](delete.md) with your account code and key. If you no longer have the
+  game, email <maestrolabs.dev@gmail.com> with your nickname (and friend code if you know it); we delete the account
+  within 30 days. Deletion removes the account, friends, blocks, lobby entry and push token at once; accounts not used
+  for 12 months are deleted automatically. Battles against the computer keep nothing on any server.
 
 ## Permissions
 The game does not request access to your contacts, location, camera, microphone or files. It uses the internet
