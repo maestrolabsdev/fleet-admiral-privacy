@@ -1,13 +1,15 @@
 # Fleet Admiral — Privacy Policy
 
-Last updated: November 17, 2026
+Last updated: November 19, 2026
 
 Fleet Admiral is a game by Maestro Dev Labs ("we"). This policy explains what data the game handles. It applies to
 Fleet Admiral as published on Google Play.
 
 ## Summary
-- We do not run servers for the game and do not collect, store or sell any personal data.
+- The game itself collects nothing, except when you use online play, described below: it then keeps an anonymous
+  online account on our server (no name, email or other personal information). We never sell any data.
 - Your settings, your battle in progress and your career (rank, points, medals) are saved only on your device.
+- Online play is optional; battles against the computer never use our server.
 - Signing in to Google Play Games is optional. If you sign in on your phone, Google receives your achievements and
   scores as described below.
 - The game has no ads, no analytics and no in-app purchases.
@@ -33,6 +35,48 @@ details, and we do not store any of this data on our own servers.
 
 You can delete this data at any time — see [Deleting your data](#deleting-your-data).
 
+## Online play
+
+Online play is optional. Nothing described in this section happens unless you open **Online** in the game. Battles
+against the computer never use it.
+
+**Your online account.** When you first open Online, the game creates an anonymous account on our server. It has a
+random account code (also your friend code) and a secret key. We never ask for your name, email, phone number or
+any other personal information, and there is no free text and no chat: your nickname is generated from word lists
+(for example "Brave Albatross 482").
+
+**What we store on our server** (operated on Cloudflare Workers):
+- your account code, a hash of your secret key, your generated nickname and your career rank as shown to others;
+- your friend list, the players you blocked, and whether you are listed in the lobby;
+- online games: both fleets, the moves, the clocks and the result — deleted 24 hours after the game ends;
+- reports you file or receive (a preset reason and the game it is about; the reporter is stored only as a
+  pseudonym) — kept for 7 days;
+- counters that protect the service from abuse (how many games, challenges or reports in a time window) and
+  temporary bans;
+- a Firebase Cloud Messaging token, used only to tell you that someone challenges you while the game is closed.
+
+We do not store IP addresses, device identifiers, your location or contacts. Other players see only your nickname
+and rank — never your account code unless you share it with them.
+
+**Google services used by online play.**
+- *Play Integrity API:* when your account is created and when a session starts, the game asks Google to confirm that
+  it is the genuine game from Google Play on a genuine device. Our server receives Google's answer, uses it once and
+  does not store it.
+- *Firebase Cloud Messaging:* delivers challenge notifications. We use no Firebase Analytics or Crashlytics.
+- *Block Store:* the game keeps your account key in your own Google account backup, so that the account survives a
+  reinstall or a new phone. Google encrypts it end to end when your device has a screen lock. We cannot read your
+  backup.
+
+**Deleting your account.** In the game: Settings → Online account → Delete account. Without the game: open
+`https://fleet-admiral-server-staging.maestrolabs-dev.workers.dev/account/delete` and enter your account code and key (both shown in Settings → Online account).
+Deletion removes your account, friends, blocks, lobby entry and push token at once; in recent games your nickname is
+replaced by "deleted". Accounts not used for 12 months are deleted automatically.
+
+**Security.** All connections are encrypted (HTTPS / WSS). Your key is stored on your device encrypted with a key held
+by the Android Keystore.
+
+**Children.** Online play has no chat and no free text; players can block and report each other.
+
 ## Android Auto
 When you play on a car screen through Android Auto, the game runs on your phone. On the car screen the game never
 signs in to Google Play Games and shows no Play Games screens; medals won there are sent the next time you open the
@@ -46,18 +90,22 @@ How to delete the data of Fleet Admiral:
 - **Google Play Games data** (your Play Games profile, and the achievements and scores Fleet Admiral sent): delete it
   in your Play Games profile at https://play.google.com/games/profile or in your Google Account at
   https://myaccount.google.com. This data is held by Google; we cannot see or delete it for you.
-- **Our servers:** we keep nothing about you on any server, so there is nothing else to delete.
+- **Your online account** (only if you used online play): delete it in the game (Settings → Online account → Delete
+  account) or on the web page given in [Online play](#online-play) with your account code and key. This removes the
+  account, friends, blocks, lobby entry and push token at once; accounts not used for 12 months are deleted
+  automatically. Battles against the computer keep nothing on any server.
 
 ## Permissions
-The game does not request access to your contacts, location, camera, microphone or files. Google Play Games uses
-your phone's network connection through Google Play services.
+The game does not request access to your contacts, location, camera, microphone or files. It uses the internet
+connection for online play and Google Play Games, and asks for permission to show notifications, used only to tell you
+that someone challenges you online.
 
 ## Children
-The game is not directed at children under 13, and we do not knowingly collect data from anyone.
+The game is not directed at children under 13, and we do not knowingly collect personal data from anyone.
 
 ## Changes
-If a future version adds features that handle data (for example online play), we will update this policy before
-releasing them and describe exactly what is used. The date at the top shows the latest change.
+If a future version adds features that handle data, we will update this policy before releasing them and describe
+exactly what is used. The date at the top shows the latest change.
 
 ## Contact
 Questions: <maestrolabs.dev@gmail.com>
