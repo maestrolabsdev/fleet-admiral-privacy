@@ -17,7 +17,9 @@ Email <maestrolabs.dev@gmail.com> with your nickname (and your friend code if yo
 within 30 days.
 
 ## What deletion removes
-Your account, its friend list and blocks, your lobby entry and your push token, at once. In games played recently your
+Your account, its friend list and blocks, your friend requests, your online results (wins and losses), your lobby
+entry and your push token, at once. Other players' counts against you keep only a pseudonym that no longer belongs to
+any account, and are deleted after 12 months. In games played recently your
 nickname is replaced by "deleted"; those games are deleted 24 hours after they end anyway. Reports other players filed
 about your account are deleted with it. Accounts not used for 12 months are deleted automatically.
 
