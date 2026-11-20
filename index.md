@@ -1,6 +1,6 @@
 # Fleet Admiral — Privacy Policy
 
-Last updated: November 19, 2026
+Last updated: November 20, 2026
 
 Fleet Admiral is a game by Maestro Dev Labs ("we"). This policy explains what data the game handles. It applies to
 Fleet Admiral as published on Google Play.
@@ -48,6 +48,12 @@ any other personal information, and there is no free text and no chat: your nick
 **What we store on our server** (operated on Cloudflare Workers):
 - your account code, a hash of your secret key, your generated nickname and your career rank as shown to others;
 - your friend list, the players you blocked, and whether you are listed in the lobby;
+- friend requests you send or receive from the lobby or after a game — until they are answered, and at most 7 days;
+  if you decline a request, we remember for 7 days who asked, so that the same player cannot ask again during that
+  time;
+- your online results: how many online games you won and lost in total, and against each of your 200 most recent
+  opponents (wins, losses and when you last played). The opponent is stored only as a pseudonym, never by account
+  code. A count against an opponent is deleted 12 months after your last game together;
 - online games: both players' account codes and nicknames, both fleets, the moves, the clocks and the result —
   deleted 24 hours after the game ends; your account keeps the ids of your last 50 games (for reports and for
   removing your name from them when you delete the account);
@@ -66,6 +72,12 @@ most a few days.
 Other players see only your nickname and rank — never your account code, unless you give it to them or add them as
 a friend (friends see each other's codes).
 
+**Friend requests.** In the lobby and after an online game you can ask another player to become friends. They see only
+your nickname and rank. Your account codes are exchanged only if they accept; if they decline, nothing is exchanged.
+Friend requests appear only inside the game — we do not send notifications for them. Your online results are shown
+only to you (next to other players' nicknames and on the Online screen) and do not change your career or Google Play
+Games achievements.
+
 **Google services used by online play.**
 - *Play Integrity API:* when your account is created and when a session starts, the game asks Google to confirm that
   it is the genuine game from Google Play on a genuine device. Our server receives Google's answer, uses it once and
@@ -79,7 +91,9 @@ a friend (friends see each other's codes).
 steps on the [account deletion page](delete.md) and enter your account code and key (both shown in Online → Online
 account). If you no longer have the game, email <maestrolabs.dev@gmail.com> with your nickname (and friend code if you
 know it); we delete the account within 30 days. Deletion removes your account, friends, blocks, lobby entry and push
-token at once; in recent games your nickname is replaced by "deleted". Accounts not used for 12 months are deleted
+token at once, as well as your friend requests and your online results. Other players' counts against you keep only a
+pseudonym that no longer belongs to any account, and are deleted after 12 months. In recent games your nickname is
+replaced by "deleted". Accounts not used for 12 months are deleted
 automatically.
 
 **Security.** All connections are encrypted (HTTPS / WSS). Your key is stored on your device encrypted with a key held
@@ -103,7 +117,8 @@ How to delete the data of Fleet Admiral:
 - **Your online account** (only if you used online play): delete it in the game (Online → Online account → Delete
   account) or on the [account deletion page](delete.md) with your account code and key. If you no longer have the
   game, email <maestrolabs.dev@gmail.com> with your nickname (and friend code if you know it); we delete the account
-  within 30 days. Deletion removes the account, friends, blocks, lobby entry and push token at once; accounts not used
+  within 30 days. Deletion removes the account, friends, blocks, lobby entry, push token, friend requests and online
+  results at once; accounts not used
   for 12 months are deleted automatically. Battles against the computer keep nothing on any server.
 
 ## Permissions
